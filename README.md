@@ -2,10 +2,6 @@
 
 > Instantly summarize any webpage with AI. Get bullet points, key insights, and estimated reading time — all in one click.
 
-![Manifest Version](https://img.shields.io/badge/Manifest-V3-blue)
-![AI](https://img.shields.io/badge/AI-Claude%20(Anthropic)-blueviolet)
-![Chrome](https://img.shields.io/badge/Chrome-Extension-green)
-
 ---
 
 ## Features
@@ -35,9 +31,9 @@
 ### Step 2 — Add your API key
 
 1. Open the file `background/config.js`
-2. Replace `YOUR_API_KEY_HERE` with your Anthropic API key:
+2. Replace `YOUR_API_KEY_HERE` with your Groq API key:
    ```js
-   ANTHROPIC_API_KEY: "sk-ant-..."
+   GROQ_API_KEY: "gsk_..."
    ```
 3. Save the file
 
@@ -101,7 +97,7 @@ extension/
         ↓
 [background.js] → checks chrome.storage cache
         ↓ (if no cache)
-[background.js] → calls Anthropic Claude API
+[background.js] → calls Groq API
         ↓
 [background.js] → parses + validates JSON response
         ↓
@@ -112,9 +108,9 @@ extension/
 
 ## AI Integration
 
-- **Provider:** Anthropic Claude (`claude-sonnet-4-20250514`)
+- **Provider:** Groq API
 - **Call location:** `background/background.js` only — never in popup or content scripts
-- **Prompt strategy:** Asks Claude to return strict JSON with `summary`, `keyInsights`, `readingTime`, `wordCount`, and `topic` fields
+- **Prompt strategy:** Asks AI to return strict JSON with `summary`, `keyInsights`, `readingTime`, `wordCount`, and `topic` fields
 - **Fallback:** If JSON parsing fails, displays raw response as a single bullet
 - **Content limit:** Page content truncated to 8,000 characters before sending to avoid token overflow
 
